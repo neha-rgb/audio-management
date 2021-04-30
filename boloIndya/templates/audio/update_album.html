@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "css/slimselect.min.css" %}" />
+    <link rel="stylesheet" href="{% static "css/editStyle.css" %}" />
+    <link rel="icon" href="{% static "images/favicon.ico" %}">
+    <title>Audio-Managemant</title>
+</head>
+<body>
+  <a href="http://127.0.0.1:8000/songs/"><img src="{% static "images/close.svg" %}" alt="here boy" id="close"></a>
+  <div class="container">
+        <h3>Add / Delete Albums </h3>
+            <form method="POST">
+                
+                  <tr>
+                      <td>
+                      <h4>Current Albums</h4>
+                      </td> 
+                  </tr>
+                   <tr>
+                      <td>{% for a in album.all %}
+                          <span class="elements">{{a}}</span> 
+                            {% endfor %}                       
+                      </td> 
+                  </tr>  
+                        {{form.as_p}}
+                        {% csrf_token %}                      
+                        <div class="btn">
+                          <button type="submit" name="update" id="btnSubmit">Submit</button>
+                        </div>
+                
+            </form>
+            <form method="post">
+                    {{addForm}}
+                    {% csrf_token %}   
+                    <button type="submit" name="add" id="btnAdd"><img src="{% static "images/addEntry.svg" %}" alt="">
+                    </button>                 
+      
+          </form>
+            </div>
+    </div>
+    <script>
+      setTimeout(function() {
+      new SlimSelect({
+        select:'#id_album_name'
+      })
+    }, 300)
+    </script>
+    <script src="{% static "css/slimselect.min.js" %}"></script>
+</body>
+</html>

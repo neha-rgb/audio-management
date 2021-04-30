@@ -1,0 +1,23 @@
+{% load static %}
+{% for s in songs %}
+  <tr>
+    <td>{{forloop.counter}}</td>
+    <td>{{s.title}}   <button  class="btnEditTitle" data-url="{% url 'UpdateSong' s.song_id %}"><img id="edit" src="{% static "images/edit.svg" %}" alt=""></button></td>
+    <td>{{s.album_name.first}}   <button class="btnEditTitle" data-url="{% url 'UpdateAlbum' s.song_id %}"><img id="edit" src="{% static "images/edit.svg" %}" alt=""></button></td>
+    <td>{{s.moods.first}}  <a href="http://127.0.0.1:8000/songs/update-mood/{{s.song_id}}"><img id="edit" src="{% static "images/edit.svg" %}" alt=""></a></td>
+    <td><audio controls style="padding-top: 2%;">
+        <source src="/media/{{s.audio_file}}" type="audio/mp3">
+    </audio></td>
+    <td><a href="/media/{{s.thumbnail}}">  
+        <img src="{% static "images/thumbnail.svg" %}" alt=""></a>
+        <a download href="/media/{{s.thumbnail}}"><img src="{% static "images/download.svg" %}" alt=""></a>
+        <img src="{% static "images/upload.svg" %}" alt=""></td>
+    <td>{{s.hashtags.first}}   <a href="http://127.0.0.1:8000/songs/update-hashtag/{{s.song_id}}"><img id="edit" src="{% static "images/edit.svg" %}" alt=""></a></td>
+    <td>{{s.vocalist_name.first}}   <a href="http://127.0.0.1:8000/songs/update-vocalist/{{s.song_id}}"> <img id="edit" src="{% static "images/edit.svg" %}" alt=""></a></td>
+    <td>{{s.languages.first}}   <a href="http://127.0.0.1:8000/songs/update-language/{{s.song_id}}"><img id="edit" src="{% static "images/edit.svg" %}" alt=""></a></td>
+    <td>
+        <a href="http://127.0.0.1:8000/songs/delete/{{s.song_id}}"><img src="{% static "images/delete.svg" %}" alt=""></a>
+        <a href=""><img id="pin" src="{% static "images/pin.svg" %}" alt="Pin"></a>
+    </td>
+  </tr>
+  {% endfor %}

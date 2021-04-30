@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static "css/style.css" %}" />
+    <link rel="stylesheet" href="{% static "css/slimselect.min.css" %}" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@500&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="icon" href="{% static "images/favicon.ico" %}">
+    <title>Bolo Indya</title>
+  </head>
+  <body>
+    <img id="boloIcon" src="{% static "images/bolo.jpg" %}" alt="">
+    <nav class="navbar">
+        <ul>
+            <li id="homeIcon" class><a href="/songs"><img class="icons" src="{% static "images/home.png" %}" alt=""></a></li>
+            <li id="settingIcon"><a href="/Settings"><img class="icons" src="{% static "images/settings.png" %}" alt=""></a></li>
+            <li id="logoutIcon"><a href="/Logout"><img class="icons" src="{% static "images/logout.png" %}" alt=""></a></li>
+        </ul>
+    </nav>
+    <div class="upSongForm">
+      <h1 id="upSongHeading">Add Audio</h1>
+    <form method="POST" enctype="multipart/form-data">
+      {{form.as_p}}
+      {% csrf_token %}
+      <input class="submitButton" type="submit" value="Submit">
+    </form>
+  </div>
+  <script>
+    setTimeout(function() {
+    new SlimSelect({
+      select:'#id_vocalist_name'
+    })
+    new SlimSelect({
+      select:'#id_hashtags'
+    })
+    new SlimSelect({
+      select:'#id_moods'
+    })
+    new SlimSelect({
+      select:'#id_languages'
+    })
+    new SlimSelect({
+      select:'#id_album_name'
+    })
+  }, 300)
+  </script>
+  <script src="{% static "css/slimselect.min.js" %}"></script>
+  </body>
+</html>

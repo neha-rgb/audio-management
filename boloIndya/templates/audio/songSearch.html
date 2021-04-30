@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "css/slimselect.min.css" %}" />
+    <link rel="stylesheet" href="{% static "css/style.css" %}" />
+    <link rel="icon" href="{% static "images/favicon.ico" %}">
+    <title>Audio-Managemant</title>
+</head>
+<body>
+    <img id="boloIcon" src="{% static "images/bolo.jpg" %}" alt="">
+    <nav class="navbar">
+        <ul>
+            <li id="homeIcon" class><a href="/Home"><img class="icons" src="{% static "images/home.png" %}" alt=""></a></li>
+            <li id="settingIcon"><a href="/Settings"><img class="icons" src="{% static "images/settings.png" %}" alt=""></a></li>
+            <li id="logoutIcon"><a href="/Logout"><img class="icons" src="{% static "images/logout.png" %}" alt=""></a></li>
+        </ul>
+    </nav>
+    <h2>Audio Management</h2>
+    <div class="audio">
+        <div id="songTotal">5000 <div style="width: 30px;">Total Songs</div></div>
+        <div id="albumTotal">50 <div style="width: 30px;">Total Albums</div></div>
+    </div>
+    <div id="search">
+        <img id="searchIcon"src="{% static "images/search.svg" %}" alt="">
+        <form id="searchbar" method="get">
+            {{form.form}}
+            <input class="btn btn-primary" type="submit" style="display: none;" value="Submit">
+        </form>
+        <a href="http://127.0.0.1:8000/upload"><img id="add" src="{% static "images/add.svg" %}" alt=""></a>
+        <select name="" id="file">
+            <option value="File Type">File Type</option>
+        </select>
+        <select name="" id="records">
+            <option value="Records">10 Records</option>
+        </select>
+    </div>
+    <table id="songlist">
+      {% if songs %}
+      <th>S.No</th>
+      <th>Audio Title</th>
+      <th>Assigned Albums</th>
+      <th>Mood</th>
+      <th>Play Audio</th>
+      <th>Thumbnail</th>
+      <th>Hashtags</th>
+      <th>Vocalists</th>
+      <th>Language</th>
+      <th>Actions</th>
+      {% for s in songs %}
+      <tr>
+        <td>{{s.song_id}}</td>
+        <td>{{s.title}}   <a href="http://127.0.0.1:8000/songs/update-title/{{s.song_id}}"><img id="edit" src="{% static "images/edit.svg" %}" alt=""></a></td>
+        <td>{{s.album_name.first}}   <a href="/songs/update-album/{{s.song_id}}"><img id="edit" src="{% static "images/edit.svg" %}" alt=""></a></td>
+        <td>{{s.moods.first}}  <a href="http://127.0.0.1:8000/songs/update-mood/{{s.song_id}}"><img id="edit" src="{% static "images/edit.svg" %}" alt=""></a></td>
+        <td><audio controls style="padding-top: 2%;">
+            <source src="/media/{{s.audio_file}}" type="audio/mp3">
+        </audio></td>
+        <td><a href="/media/{{s.thumbnail}}">  
+            <img src="{% static "images/thumbnail.svg" %}" alt=""></a>
+            <a download href="/media/{{s.thumbnail}}"><img src="{% static "images/download.svg" %}" alt=""></a>
+            <img src="{% static "images/upload.svg" %}" alt=""></td>
+        <td>{{s.hashtags.first}}   <a href="http://127.0.0.1:8000/songs/update-hashtag/{{s.song_id}}"><img id="edit" src="{% static "images/edit.svg" %}" alt=""></a></td>
+        <td>{{s.vocalist_name.first}}   <a href="http://127.0.0.1:8000/songs/update-vocalist/{{s.song_id}}"> <img id="edit" src="{% static "images/edit.svg" %}" alt=""></a></td>
+        <td>{{s.languages.first}}   <a href="http://127.0.0.1:8000/songs/update-language/{{s.song_id}}"><img id="edit" src="{% static "images/edit.svg" %}" alt=""></a></td>
+        <td>
+            <a href="http://127.0.0.1:8000/songs/delete/{{s.song_id}}"><img src="{% static "images/delete.svg" %}" alt=""></a>
+            <a href=""><img id="pin" src="{% static "images/pin.svg" %}" alt="Pin"></a>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% else %}
+    <p>NO ACCESS RECORDS FOUND</p>
+    {% endif %}
+    <script>
+        setTimeout(function() {
+        new SlimSelect({
+          select:'#id_vocalist_name'
+        })
+        new SlimSelect({
+          select:'#id_album_name'
+        })
+      }, 300)
+      </script>
+      <script src="{% static "css/slimselect.min.js" %}"></script>
+</body>
+</html>

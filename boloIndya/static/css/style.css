@@ -1,0 +1,211 @@
+body {
+  font-family: "Baloo Bhai 2";
+}
+#boloIcon {
+  position: absolute;
+  width: 86px;
+  height: 48px;
+  left: 20px;
+  top: 5px;
+}
+th,
+td {
+  padding: 3px 18px;
+}
+button {
+  border-style: none;
+  background: white;
+}
+#songlist {
+  position: absolute;
+  left: 155px;
+  top: 420px;
+}
+.navbar {
+  position: absolute;
+  width: 97px;
+  height: 788px;
+  left: 22px;
+  top: 57px;
+  background: #121111;
+  border-radius: 24px;
+  margin: 0 auto;
+}
+.upSongForm {
+  position: absolute;
+  left: 200px;
+}
+h2 {
+  position: absolute;
+  display: inline-block;
+  height: 86px;
+  left: 167px;
+  font-style: normal;
+  font-weight: 400px;
+  font-size: 54px;
+  line-height: 86px;
+}
+form {
+  display: inline-block;
+}
+ul {
+  margin-top: 50px;
+  list-style-type: none;
+}
+li {
+  padding: 30px 0px 30px 0px;
+  margin-right: 50px;
+}
+.update label {
+  display: none;
+}
+.submitButton {
+  position: relative;
+  left: 300px;
+  top: 35px;
+  width: 228px;
+  height: 43px;
+  background: linear-gradient(180deg, #0270be 0%, #10a5f9 100%);
+  border-radius: 5px;
+  color: white;
+}
+.icons {
+  width: 26px;
+  height: 26px;
+}
+.modal-content {
+  position: relative;
+  top: 200px;
+  background: #121111;
+  color: white;
+}
+.modal-header {
+  width: 550px;
+}
+.audio {
+  font-size: 34px;
+}
+#songTotal {
+  position: absolute;
+  text-align: center;
+  width: 180px;
+  height: 84px;
+  left: 155px;
+  top: 160px;
+  font-size: 34px;
+  background: #f5f5f7;
+  border-radius: 14px;
+}
+#albumTotal {
+  position: absolute;
+  text-align: center;
+  width: 180px;
+  height: 84px;
+  left: 385px;
+  top: 160px;
+  font-size: 34px;
+  background: #f5f5f7;
+  border-radius: 14px;
+}
+#upSongHeading {
+  position: relative;
+  top: 30px;
+}
+#search {
+  position: absolute;
+  width: 338px;
+  height: 160px;
+  left: 155px;
+  top: 265px;
+  background: #f5f5f7;
+  border-radius: 5px;
+}
+#edit {
+  position: relative;
+  top: 3px;
+}
+#add {
+  position: absolute;
+  left: 940px;
+  top: 18px;
+}
+#delete {
+  position: absolute;
+  left: 940px;
+  top: 20px;
+}
+#file {
+  position: absolute;
+  width: 97px;
+  height: 29px;
+  left: 980px;
+  top: 10px;
+  background: #f5f5f7;
+}
+#pin {
+  position: relative;
+  top: 5px;
+}
+#records {
+  position: absolute;
+  width: 97px;
+  height: 29px;
+  left: 1100px;
+  top: 10px;
+  background: #f5f5f7;
+}
+#searchIcon {
+  height: 30px;
+  width: 30px;
+  padding-top: 5px;
+  position: relative;
+  top: -80px;
+}
+#titleSearch {
+  position: relative;
+  height: 27px;
+  width: 275px;
+  background-color: #f5f5f7;
+  border-style: none;
+  color: #9f9f9f;
+}
+#searchbar {
+  position: relative;
+  height: 27px;
+  width: 275px;
+  top: 15px;
+  background-color: #f5f5f7;
+  border-style: none;
+  color: #9f9f9f;
+}
+#logoutIcon {
+  margin-top: 450px;
+}
+.check {
+  width: 20px;
+  height: 20px;
+}
+#id_vocalist_name {
+  position: absolute;
+  left: 500px;
+  top: 10px;
+}
+#id_album_name {
+  position: absolute;
+  left: 350px;
+  top: 10px;
+}
+input {
+  width: 100%;
+  height: 35px;
+  background: #f5f5f7;
+  border-radius: 5px;
+  border: none;
+}
+#id_thumbnail {
+  width: 100%;
+  height: 80px;
+  background: #f5f5f7;
+  border-radius: 5px;
+  border: none;
+}

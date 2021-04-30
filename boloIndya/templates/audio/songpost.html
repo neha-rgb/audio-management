@@ -1,0 +1,23 @@
+{% load widget_tweaks %}
+{% load static %}
+<form method="POST" action="{% url 'songpost' s.pk %}" class="SongForm">
+  {% csrf_token %}
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <h4 class="modal-title">{{s.title}}</h4>
+    </div>
+    <div class="modal-body">
+        <table>
+    <tr>
+        <center><td><audio controls style="padding-top: 2%;">
+            <source src="/media/{{s.audio_file}}" type="audio/mp3">
+        </audio></center></td>
+    </tr>
+    </table>
+    </div>
+    <div class="modal-footer">
+     <center> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </center>
+    </div>
+</form>
